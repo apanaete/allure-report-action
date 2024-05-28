@@ -4,6 +4,7 @@ ARG RELEASE=2.27.0
 ARG ALLURE_REPO=https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline
 
 RUN echo $RELEASE && \
+    sed -i 's/http\:\/\/dl-cdn.alpinelinux.org/https\:\/\/dl-cdn.alpinelinux.org/g' /etc/apk/repositories && \
     apk update && \
     apk add --no-cache bash wget unzip && \
     rm -rf /var/cache/apk/*
